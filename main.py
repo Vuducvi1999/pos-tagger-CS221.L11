@@ -81,7 +81,7 @@ def Tagger(text):
     tags_predict = pd.DataFrame(temp1, columns=list(tags), index=temp2)
     # print(tags_predict)
     file_path = 'matrix.txt'
-    f = open(file_path, 'w', encoding="utf-8")
+    f = open(file_path, 'w', encoding='utf-8')
     f.write(tags_predict.to_string())
     f.close()
 
@@ -138,4 +138,4 @@ def Viterbi_rule_based(words):
 # print(Viterbi_rule_based(
 #     'Pierre Vinken , 61 years old , will join the board as a nonexecutive director Nov. 29 .'))
 
-print(Tagger('Code ròng rã finally đã done'))
+print(Tagger('As seen above , using the Viterbi algorithm along with rules can yield us better results'))
