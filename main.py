@@ -39,7 +39,7 @@ def Viterbi(words):
     for key, word in enumerate(words):
         for index, tag in enumerate(tags):
             if word not in all_words:
-                emission_p = 1/len(all_words)
+                emission_p = 1e-100
             else:
                 # xác suất thể hiện (nhờ ma trận Emission Probability) của word với tag hiện tại
                 emission_p = words_df.loc[tag, words[key]]
