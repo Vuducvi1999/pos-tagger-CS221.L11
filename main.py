@@ -110,7 +110,7 @@ def Viterbi_rule_based(words):
     probal = []
     words = words.split()
     for key, word in enumerate(words):
-        # initialise list of probability column for a given observation
+        # p chứa xấc suất xảy ra nhãn hiện tại
         p = []
         for tag in T:
             if key == 0:
@@ -119,7 +119,7 @@ def Viterbi_rule_based(words):
                 transition_p = tags_df.loc[state[-1], tag]
 
             if word not in all_words:
-                emission_p = 1/len(all_words)
+                emission_p = 1e-100
             else:
                 # xác suất thể hiện (nhờ ma trận Emission Probability) của word với tag hiện tại
                 emission_p = words_df.loc[tag, words[key]]
@@ -129,7 +129,7 @@ def Viterbi_rule_based(words):
 
         pmax = max(p)
         probal.append(pmax)
-        # getting state for which probability is maximum
+        # lấy nhãn có p cao nhất
         state_max = T[p.index(pmax)]
         state.append(state_max)
     return state
